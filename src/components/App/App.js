@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack= this.removeTrack.bind(this);
     this.changeName= this.changeName.bind(this);
+    this.search = this.search.bind(this)
   }
   addTrack(track){
     let arr = this.state.playlistTracks;
@@ -44,6 +45,10 @@ export default class App extends React.Component {
   savePlaylist(){
 
   }
+  search(searchTerm){
+    console.log(searchTerm)
+
+  }
   render() {
     return (
       <div>
@@ -52,7 +57,9 @@ export default class App extends React.Component {
         </h1>
         <div className="App">
           {/* <!-- Add a SearchBar component --> */}
-          <SearchBar/>
+          <SearchBar
+            onSearch={this.search}
+          />
           <div className="App-playlist">
             {/* <!-- Add a SearchResults component --> */}
             <SearchResults 
