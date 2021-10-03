@@ -41,6 +41,9 @@ export default class App extends React.Component {
       playlistName: name
     })
   }
+  savePlaylist(){
+
+  }
   render() {
     return (
       <div>
@@ -61,6 +64,7 @@ export default class App extends React.Component {
               playlist={this.state.playlistTracks}
               onRemove= {this.removeTrack}
               changeName={this.changeName}
+              onSave={this.savePlaylist}
             />
           </div>
         </div>
