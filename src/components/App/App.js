@@ -22,6 +22,7 @@ export default class App extends React.Component {
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack= this.removeTrack.bind(this);
+    this.changeName= this.changeName.bind(this);
   }
   addTrack(track){
     let arr = this.state.playlistTracks;
@@ -34,6 +35,11 @@ export default class App extends React.Component {
   removeTrack(track){
     let arr = this.state.playlistTracks.filter(el => el.id !== track.id);
     this.setState({playlistTracks: arr})
+  }
+  changeName(name){
+    this.setState({
+      playlistName: name
+    })
   }
   render() {
     return (
@@ -54,6 +60,7 @@ export default class App extends React.Component {
             <Playlist 
               playlist={this.state.playlistTracks}
               onRemove= {this.removeTrack}
+              changeName={this.changeName}
             />
           </div>
         </div>
