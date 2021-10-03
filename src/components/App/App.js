@@ -20,6 +20,15 @@ export default class App extends React.Component {
         {name: "Track6", artist: "Artist2", album: "Album1", id:"06" },
       ]
     }
+    this.addTrack = this.addTrack.bind(this);
+  }
+  addTrack(track){
+    let arr = this.state.playlistTracks;
+    if (arr.find(el => el.id === track.id )){
+      return
+    }
+    arr.push(track);
+      this.setState({playlistTracks: arr})
   }
   render() {
     return (
@@ -32,7 +41,7 @@ export default class App extends React.Component {
           <SearchBar/>
           <div className="App-playlist">
             {/* <!-- Add a SearchResults component --> */}
-            <SearchResults searchResults={this.state.searchResults}/>
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
             {/* <!-- Add a Playlist component --> */}
             <Playlist playlist={this.state.playlistTracks}/>
           </div>
