@@ -42,15 +42,6 @@ export default class App extends React.Component {
       playlistName: name
     })
   }
-  savePlaylist(){
-
-  }
-  search(searchTerm){
-    Spotify.search(searchTerm).then(searchResults => {
-      this.setState({searchResults: searchResults})
-    })
-
-  }
   render() {
     return (
       <div>
@@ -73,7 +64,6 @@ export default class App extends React.Component {
               playlist={this.state.playlistTracks}
               onRemove= {this.removeTrack}
               changeName={this.changeName}
-              onSave={this.savePlaylist}
             />
           </div>
         </div>
